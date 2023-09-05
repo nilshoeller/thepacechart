@@ -1,0 +1,14 @@
+@font-face {
+  font-family: a-big-deal-font;
+  src: url('a-big-deal-font/BigDeal-nRDJg.ttf')  format('truetype');
+}
+
+h1 {
+    /* safety orange */
+    color: #ff5733;
+    font-family: a-big-deal-font;
+}
+
+h2 {
+    font-family: a-big-deal-font;
+}
