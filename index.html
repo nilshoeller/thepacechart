@@ -5,16 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>The Pace Chart</title>
+    <script defer src="script.js"></script>
 </head>
 <body>
 
     <h2 style="float: left">The </h2> 
     <h1 style="float: left">PACE CHART</h1>
 
-
+    <div id="error" style="clear: left;"></div>
     
-    <form action="" style="clear: left;">
-        <input type="text">
+    <form action="/" method="GET">
+
+        <div>
+            <label for="distance">Distance:</label>
+            <input id="distance" name="distance" type="text">
+        </div>
+    
+        <br>
+
+        <div>
+            <label for="time_from">Time from: </label>
+            <input id="time_from" name="time_from" type="text">
+            <label for="time_to">to:</label>
+            <input id="time_to" name="time_to" type="text">
+        </div>
+
+        <br>
+
+        <button type="submit">Submit</button>
+
     </form>
 
 

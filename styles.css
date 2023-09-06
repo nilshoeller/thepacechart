@@ -3,6 +3,11 @@
   src: url('a-big-deal-font/BigDeal-nRDJg.ttf')  format('truetype');
 }
 
+* {
+  background-color: #23395E;
+  /* background-color: #2E5984; */
+}
+
 h1 {
     /* safety orange */
     color: #ff5733;
