@@ -2,8 +2,13 @@
   font-family: a-big-deal-font;
   src: url('a-big-deal-font/BigDeal-nRDJg.ttf')  format('truetype');
 }
+@font-face {
+  font-family: roboto-regular;
+  src: url('Roboto/Roboto-Regular.ttf')  format('truetype');
+}
 
 * {
+  font-family: roboto-regular ,sans-serif;
   /* background-color: #23395E; */
   /* background-color: #2E5984; */
 }
@@ -32,13 +37,13 @@ input[type=text] {
 }
 
 #submit {
+  width: 90px;
   color: black;
   background-color: #ff5733;
   padding: 5px;
   margin: 3px;
   border: 2px solid #eee;
-  border-radius: 5px;
-  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  /* border-radius: 5px; */
 }
 
 td,
@@ -55,24 +60,10 @@ tr:nth-child(even) {
   background-color: #eee;
 }
 
-th[scope='col'] {
-  background-color: #696969;
-  color: #fff;
-}
-
-th[scope='row'] {
-  background-color: #d7d9f2;
-}
-
-caption {
-  padding: 10px;
-  caption-side: bottom;
-}
-
 table {
   border-collapse: collapse;
   border: 2px solid rgb(200, 200, 200);
   letter-spacing: 1px;
-  font-family: sans-serif;
+  font-family: roboto-regular ,sans-serif;
   font-size: 0.8rem;
 }
