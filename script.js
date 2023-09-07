@@ -2,6 +2,7 @@ const form = document.getElementById("form");
 const distance = document.getElementById("distance");
 const time_from = document.getElementById("time_from");
 const time_to = document.getElementById("time_to");
+const step = document.getElementById("step")
 const times_table = document.getElementById("times_table");
 
 const errorElement = document.getElementById("error");
@@ -23,6 +24,9 @@ form.addEventListener("submit", (e) => {
     else if (time_to.value.length != 5){
         messages.push("Time to is not in the right format (MM:SS)")
     }
+    if (step.value === "" || step.value == null) {
+        messages.push("Step is required")
+    }
 
     if (messages.length > 0){
         e.preventDefault();
@@ -39,7 +43,7 @@ form.addEventListener("submit", (e) => {
         var distance_meters = parseInt(distance.value);
         var time_from_in_seconds = (parseInt(time_from.value.slice(0,2)) * 60) + parseInt(time_from.value.slice(3,5));
 
-        var step = 10;
+        var step_seconds = parseInt(step.value);
 
         var curr_time = time_from_in_seconds
 
@@ -53,7 +57,7 @@ form.addEventListener("submit", (e) => {
             cell2.innerHTML = time_per_km(curr_time, distance_meters);
             cell3.innerHTML = time_per_mile(curr_time, distance_meters);
 
-            curr_time += step;
+            curr_time += step_seconds;
 
         }
 
