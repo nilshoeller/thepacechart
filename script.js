@@ -28,16 +28,53 @@ form.addEventListener("submit", (e) => {
         e.preventDefault();
 
         errorElement.innerText = messages.join(", ")
+    } else {
+        e.preventDefault();
+
+        var distance_meters = parseInt(distance.value);
+        var time_from_in_seconds = (parseInt(time_from.value.slice(0,2)) * 60) + parseInt(time_from.value.slice(3,5));
+
+        var step = 10;
+
+        var curr_time = time_from_in_seconds
+
+        for (let i = 0; i < 10; i++){
+            var row = times_table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2)
+            
+            cell1.innerHTML = seconds_to_format(curr_time);
+            cell2.innerHTML = time_per_km(curr_time, distance_meters);
+            cell3.innerHTML = time_per_mile(curr_time, distance_meters);
+
+            curr_time += step;
+
+        }
+
     }
 
 
+    function seconds_to_format(time){
+        var minutes = parseInt(time / 60)
+        var seconds = time % 60
+        if (seconds < 10){
+            seconds = "0" + seconds
+        }
+
+        return minutes + ":" + seconds;
+    }
+
+    function time_per_km(time, distance) {
+        pace_per_km = (time / distance) * 1000
+    
+        return seconds_to_format(pace_per_km) + "/km"
+    }
+
+    function time_per_mile(time, distance) {
+        pace_per_mile = (time / distance) * 1609,34
+    
+        return seconds_to_format(Math.floor(pace_per_mile)) + "/mile"
+    }
+
 })
-
-var row = times_table.insertRow(-1);
-var cell1 = row.insertCell(0);
-var cell2 = row.insertCell(1);
-var cell3 = row.insertCell(2)
-
-cell1.innerHTML = "NEW CELL1";
-cell2.innerHTML = "NEW CELL2";
-cell3.innerHTML = "NEW CELL3"
