@@ -12,27 +12,28 @@
     <h2 style="float: left">The </h2> 
     <h1 style="float: left">PACE CHART</h1>
 
-    <div id="error" style="clear: left;"></div>
     
-    <form id="form" action="/" method="GET">
-
+    <form id="form" action="" style="clear: left;">
+        
         <div>
-            <label for="distance">Distance:</label>
-            <input id="distance" name="distance" type="text">
+            <label for="distance">Distance in meters:</label>
+            <input id="distance" name="distance" type="text" placeholder="5000">
         </div>
-    
+        
         <br>
-
+        
         <div>
             <label for="time_from">Time from: </label>
-            <input id="time_from" name="time_from" type="text">
+            <input id="time_from" name="time_from" type="text" placeholder="20:00">
             <label for="time_to">to:</label>
-            <input id="time_to" name="time_to" type="text">
+            <input id="time_to" name="time_to" type="text" placeholder="25:00">
         </div>
-
+        
         <br>
-
+        
         <button type="submit">Submit</button>
+        
+        <div id="error" ></div>
 
     </form>
 
@@ -40,7 +41,7 @@
     <br>
 
 
-    <table>
+    <table id="times_table">
         <tr>
             <th>time</th>
             <th>time/km</th>
