@@ -18,6 +18,9 @@ form.addEventListener("submit", (e) => {
     else if (time_from.value.length != 5){
         messages.push("Time from is not in the right format (MM:SS)")
     }
+    if (time_to.value <= time_from.value){
+        messages.push('"Time to" has to be bigger than "time from"')
+    }
     if (time_to.value === "" || time_to.value == null) {
         messages.push("Time to is required")
     }
@@ -35,6 +38,8 @@ form.addEventListener("submit", (e) => {
     } else {
         e.preventDefault();
 
+        errorElement.innerText = ""
+
         var table_rows_count = times_table.rows.length
         for (let i=0; i<table_rows_count-1; i++) {
             times_table.deleteRow(-1);
@@ -42,12 +47,12 @@ form.addEventListener("submit", (e) => {
 
         var distance_meters = parseInt(distance.value);
         var time_from_in_seconds = (parseInt(time_from.value.slice(0,2)) * 60) + parseInt(time_from.value.slice(3,5));
-
+        var time_to_in_seconds = (parseInt(time_to.value.slice(0,2)) * 60) + parseInt(time_to.value.slice(3,5));
         var step_seconds = parseInt(step.value);
 
         var curr_time = time_from_in_seconds
 
-        for (let i = 0; i < 10; i++){
+        while (curr_time <= time_to_in_seconds){
             var row = times_table.insertRow(-1);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
@@ -58,7 +63,6 @@ form.addEventListener("submit", (e) => {
             cell3.innerHTML = time_per_mile(curr_time, distance_meters);
 
             curr_time += step_seconds;
-
         }
 
     }
