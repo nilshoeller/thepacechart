@@ -31,6 +31,11 @@ form.addEventListener("submit", (e) => {
     } else {
         e.preventDefault();
 
+        var table_rows_count = times_table.rows.length
+        for (let i=0; i<table_rows_count-1; i++) {
+            times_table.deleteRow(-1);
+        }
+
         var distance_meters = parseInt(distance.value);
         var time_from_in_seconds = (parseInt(time_from.value.slice(0,2)) * 60) + parseInt(time_from.value.slice(3,5));
 
@@ -68,7 +73,7 @@ form.addEventListener("submit", (e) => {
     function time_per_km(time, distance) {
         pace_per_km = (time / distance) * 1000
     
-        return seconds_to_format(pace_per_km) + "/km"
+        return seconds_to_format(Math.floor(pace_per_km)) + "/km"
     }
 
     function time_per_mile(time, distance) {
