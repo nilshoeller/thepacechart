@@ -49,54 +49,54 @@ form.addEventListener("submit", (e) => {
         }
 
     }
-
-
-    function seconds_to_time_format(time){
-        var minutes = parseInt(time / 60)
-        var seconds = time % 60
-        if (seconds < 10){
-            seconds = "0" + seconds
-        }
-
-        return minutes + ":" + seconds;
-    }
-
-    function time_per_km(time, distance) {
-        pace_per_km = (time / distance) * 1000
-    
-        return seconds_to_time_format(Math.floor(pace_per_km)) + "/km"
-    }
-
-    function time_per_mile(time, distance) {
-        pace_per_mile = (time / distance) * 1609,34
-    
-        return seconds_to_time_format(Math.floor(pace_per_mile)) + "/mile"
-    }
-
-    function check_input_fields() {
-        let messages = []
-        // error handling
-        if (distance.value === "" || distance.value == null) {
-            messages.push("Distance is required")
-        }
-        if (time_from.value === "" || time_from.value == null) {
-            messages.push("Time from is required")
-        }
-        else if (time_from.value.length != 5){
-            messages.push("Time from is not in the right format (MM:SS)")
-        }
-        if (time_to.value === "" || time_to.value == null) {
-            messages.push("Time to is required")
-        }
-        else if (time_to.value.length != 5){
-            messages.push("Time to is not in the right format (MM:SS)")
-        }
-        else if (time_to.value <= time_from.value){
-            messages.push('"Time to" has to be bigger than "time from"')
-        }
-        if (step.value === "" || step.value == null) {
-            messages.push("Step is required")
-        }
-        return messages;
-    }
 })
+
+
+function seconds_to_time_format(time){
+    var minutes = parseInt(time / 60)
+    var seconds = time % 60
+    if (seconds < 10){
+        seconds = "0" + seconds
+    }
+
+    return minutes + ":" + seconds;
+}
+
+function time_per_km(time, distance) {
+    pace_per_km = (time / distance) * 1000
+
+    return seconds_to_time_format(Math.floor(pace_per_km)) + "/km"
+}
+
+function time_per_mile(time, distance) {
+    pace_per_mile = (time / distance) * 1609,34
+
+    return seconds_to_time_format(Math.floor(pace_per_mile)) + "/mile"
+}
+
+function check_input_fields() {
+    let messages = []
+    // error handling
+    if (distance.value === "" || distance.value == null) {
+        messages.push("Distance is required")
+    }
+    if (time_from.value === "" || time_from.value == null) {
+        messages.push("Time from is required")
+    }
+    else if (time_from.value.length != 5){
+        messages.push("Time from is not in the right format (MM:SS)")
+    }
+    if (time_to.value === "" || time_to.value == null) {
+        messages.push("Time to is required")
+    }
+    else if (time_to.value.length != 5){
+        messages.push("Time to is not in the right format (MM:SS)")
+    }
+    else if (time_to.value <= time_from.value){
+        messages.push('"Time to" has to be bigger than "time from"')
+    }
+    if (step.value === "" || step.value == null) {
+        messages.push("Step is required")
+    }
+    return messages;
+}
